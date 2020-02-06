@@ -7,6 +7,10 @@ class Api::V1::AccountsController < ApplicationController
         render json: accounts
     end 
 
+    def show
+        render json: @account
+    end 
+
     def create
         account = Account.new(account_params)
 
@@ -15,10 +19,6 @@ class Api::V1::AccountsController < ApplicationController
         else 
             render json: {error: 'Error creating account'}
         end 
-    end 
-
-    def show
-        render json: @account
     end 
 
     def destroy
